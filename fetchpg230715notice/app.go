@@ -25,8 +25,7 @@ const startDate = "07/09/2023"
 const endDate = "07/16/2023"
 
 func Fetch() {
-	//
-	fetchFrom(69, -1, -1)
+	fetchFrom(104, -1, -1)
 	// fetchFrom(76, 3, 3)
 }
 
@@ -231,6 +230,7 @@ func solveCaptcha(page *rod.Page, cli *api2captcha.Client) {
 
 	if solveCapcthaMethod == solveCapcthaMethodManual {
 
+		tools.Notify()
 		recapcthaFrame := page.MustElement("[id$='pnlReCaptcha']").MustFrame()
 		page.MustSetWindow(0, 0, *recapcthaFrame.MustGetWindow().Width, *recapcthaFrame.MustGetWindow().Height)
 		el := page.MustElement("[id$='pnlReCaptcha']")
@@ -259,7 +259,8 @@ func solveCaptcha(page *rod.Page, cli *api2captcha.Client) {
 		fmt.Println("2captcha process:", now)
 		code, err := cli.Solve(req)
 		if err != nil {
-			fmt.Println("ERROR Recaptcha", err)
+			fmt.Println("ERROR Recaptcha:", err)
+			tools.Notify()
 		}
 		fmt.Println("2captcha response code:", code)
 		balance, _ := cli.GetBalance()

@@ -1,6 +1,9 @@
 package tools
 
 import (
+	"fmt"
+	"os/exec"
+
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/proto"
 	"github.com/go-rod/rod/lib/utils"
@@ -28,4 +31,15 @@ func Screenshot(page *rod.Page, e *rod.Element, path string) {
 	}
 	bin, _ := page.Screenshot(true, opts)
 	utils.OutputFile(path, bin)
+}
+
+// install "say" in ubuntu
+func Notify() {
+	alarm := ""
+	for i := 0; i < 20; i++ {
+		alarm += "li"
+	}
+	err := exec.Command("say", alarm).
+		Run()
+	fmt.Println("ERROR Notify:", err)
 }
