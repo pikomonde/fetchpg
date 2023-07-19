@@ -36,6 +36,7 @@ func main() {
 		fileff, _ := os.Create(dirff + filename)
 		defer fileff.Close()
 		fileffWriter := csv.NewWriter(fileff)
+		defer fileffWriter.Flush()
 		fileffContent := append(file01Content, file02Content...)
 		for _, fileffRow := range fileffContent {
 			fileffWriter.Write(fileffRow)
