@@ -18,15 +18,15 @@ const (
 )
 
 // config
-const prefix = "fetchpg230715notice/output/"
+const prefix = "fetchpg230715notice/output/2023-08/"
 const solveCapcthaMethod = solveCapcthaMethodAuto
 const apiKey2Captcha = "b7dae04298c886ab818ec47258bcc242"
-const startDate = "07/09/2023"
-const endDate = "07/16/2023"
+const startDate = "08/02/2023"
+const endDate = "08/19/2023"
 
 func Fetch() {
-	fetchFrom(104, -1, -1)
-	// fetchFrom(76, 3, 3)
+	fetchFrom(-1, -1, -1)
+	// fetchFrom(76, 5, -1)
 }
 
 // -1 value for startPage and startRecordInPage for getting all data
